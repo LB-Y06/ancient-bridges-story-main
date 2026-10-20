@@ -1,0 +1,10 @@
+INSERT INTO `time_bubble` (`id`, `era`, `x_index`, `color`, `create_time`) VALUES (1, '先秦', 1, '#5DA6AE', '2026-04-27 22:10:15');
+INSERT INTO `time_bubble` (`id`, `era`, `x_index`, `color`, `create_time`) VALUES (2, '秦汉', 2, '#228B22', '2026-04-27 22:10:15');
+INSERT INTO `time_bubble` (`id`, `era`, `x_index`, `color`, `create_time`) VALUES (3, '三国两晋南北朝', 3, '#7B68EE', '2026-04-27 22:10:15');
+INSERT INTO `time_bubble` (`id`, `era`, `x_index`, `color`, `create_time`) VALUES (4, '隋唐', 4, '#8B4513', '2026-04-27 22:10:15');
+INSERT INTO `time_bubble` (`id`, `era`, `x_index`, `color`, `create_time`) VALUES (5, '宋', 5, '#FF7F00', '2026-04-27 22:10:15');
+INSERT INTO `time_bubble` (`id`, `era`, `x_index`, `color`, `create_time`) VALUES (6, '元', 6, '#C7A46A', '2026-04-27 22:10:15');
+INSERT INTO `time_bubble` (`id`, `era`, `x_index`, `color`, `create_time`) VALUES (7, '明', 7, '#4a6fe3', '2026-04-27 22:10:15');
+INSERT INTO `time_bubble` (`id`, `era`, `x_index`, `color`, `create_time`) VALUES (8, '清', 8, '#34a853', '2026-04-27 22:10:15');
+INSERT INTO `time_bubble` (`id`, `era`, `x_index`, `color`, `create_time`) VALUES (9, '明', 9, NULL, '2026-04-29 00:16:08');
+INSERT INTO `time_bubble` (`id`, `era`, `x_index`, `color`, `create_time`) VALUES (10, '清', 10, NULL, '2026-04-29 00:16:08');

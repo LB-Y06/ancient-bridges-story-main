@@ -1,0 +1,9 @@
+INSERT INTO `graph_link` (`id`, `source`, `target`, `create_time`) VALUES (1, 1, 2, '2026-04-27 19:57:28');
+INSERT INTO `graph_link` (`id`, `source`, `target`, `create_time`) VALUES (2, 1, 3, '2026-04-27 19:57:28');
+INSERT INTO `graph_link` (`id`, `source`, `target`, `create_time`) VALUES (3, 2, 4, '2026-04-27 19:57:28');
+INSERT INTO `graph_link` (`id`, `source`, `target`, `create_time`) VALUES (4, 2, 5, '2026-04-27 19:57:28');
+INSERT INTO `graph_link` (`id`, `source`, `target`, `create_time`) VALUES (5, 3, 6, '2026-04-27 19:57:28');
+INSERT INTO `graph_link` (`id`, `source`, `target`, `create_time`) VALUES (6, 1, 7, '2026-04-27 19:57:28');
+INSERT INTO `graph_link` (`id`, `source`, `target`, `create_time`) VALUES (7, 1, 8, '2026-04-27 19:57:28');
+INSERT INTO `graph_link` (`id`, `source`, `target`, `create_time`) VALUES (8, 7, 4, '2026-04-27 19:57:28');
+INSERT INTO `graph_link` (`id`, `source`, `target`, `create_time`) VALUES (9, 7, 5, '2026-04-27 19:57:28');

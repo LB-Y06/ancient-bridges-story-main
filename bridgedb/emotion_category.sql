@@ -1,0 +1,10 @@
+INSERT INTO `emotion_category` (`id`, `name`, `emotion_type`, `color`, `value`, `create_time`) VALUES (1, '积极的', 1, '#4a6fe3', 0, '2026-04-27 22:32:13');
+INSERT INTO `emotion_category` (`id`, `name`, `emotion_type`, `color`, `value`, `create_time`) VALUES (2, '愉悦', 1, '#ffb74d', 0, '2026-04-27 22:32:13');
+INSERT INTO `emotion_category` (`id`, `name`, `emotion_type`, `color`, `value`, `create_time`) VALUES (3, '消极的', 0, '#8bc34a', 0, '2026-04-27 22:32:13');
+INSERT INTO `emotion_category` (`id`, `name`, `emotion_type`, `color`, `value`, `create_time`) VALUES (4, '气愤', 0, '#f44336', 0, '2026-04-27 22:32:13');
+INSERT INTO `emotion_category` (`id`, `name`, `emotion_type`, `color`, `value`, `create_time`) VALUES (5, '厌恶', 0, '#9c27b0', 0, '2026-04-27 22:32:13');
+INSERT INTO `emotion_category` (`id`, `name`, `emotion_type`, `color`, `value`, `create_time`) VALUES (6, '震撼', 1, '#00bcd4', 0, '2026-04-27 22:32:13');
+INSERT INTO `emotion_category` (`id`, `name`, `emotion_type`, `color`, `value`, `create_time`) VALUES (7, '惊艳', 1, '#e91e63', 0, '2026-04-27 22:32:13');
+INSERT INTO `emotion_category` (`id`, `name`, `emotion_type`, `color`, `value`, `create_time`) VALUES (8, '舒适', 1, '#26a69a', 0, '2026-04-27 22:32:13');
+INSERT INTO `emotion_category` (`id`, `name`, `emotion_type`, `color`, `value`, `create_time`) VALUES (9, '害怕', 0, '#795548', 0, '2026-04-27 22:32:13');
+INSERT INTO `emotion_category` (`id`, `name`, `emotion_type`, `color`, `value`, `create_time`) VALUES (10, '悲伤', 0, '#607d8b', 0, '2026-04-27 22:32:13');

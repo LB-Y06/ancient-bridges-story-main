@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>古桥详情</title>
+  <link rel="stylesheet" href="libs/leaflet/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="detail-body">
+  <div class="detail-page">
+    <div class="detail-topbar">
+      <button class="ghost-btn" id="backHomeBtn">返回主叙事页</button>
+    </div>
+
+    <section class="detail-hero-card fade-in-up">
+      <div class="detail-hero-left">
+        <div class="detail-kicker">中国古代桥梁个案解读</div>
+        <h1 id="detailName">桥梁名称</h1>
+        <div class="detail-tags">
+          <span class="detail-tag" id="detailDynasty">—</span>
+          <span class="detail-tag" id="detailType">—</span>
+          <span class="detail-tag" id="detailMaterial">—</span>
+        </div>
+        <p class="detail-summary" id="detailSummary">
+          这里将展示该桥梁的总体解读。
+        </p>
+      </div>
+      <div class="detail-hero-right">
+        <div class="detail-quote-box">
+          <div class="detail-quote-label">个案观察</div>
+          <div class="detail-quote-text" id="detailQuote">
+            桥梁不仅跨越河流，也连接技术、地方经验与历史记忆。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="detail-layout">
+      <div class="detail-main">
+        <section class="detail-section-card fade-in-up">
+          <div class="detail-section-title">基础信息</div>
+          <div class="detail-info-grid">
+            <div class="detail-info-card">
+              <div class="detail-info-label">地理位置</div>
+              <div class="detail-info-value" id="detailLocation">—</div>
+            </div>
+            <div class="detail-info-card">
+              <div class="detail-info-label">所属批次</div>
+              <div class="detail-info-value" id="detailBatch">—</div>
+            </div>
+            <div class="detail-info-card">
+              <div class="detail-info-label">年代信息</div>
+              <div class="detail-info-value" id="detailYear">—</div>
+            </div>
+            <div class="detail-info-card">
+              <div class="detail-info-label">桥梁编号</div>
+              <div class="detail-info-value" id="detailId">—</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section-card fade-in-up">
+          <div class="detail-section-title">桥梁解读</div>
+          <div class="detail-paragraph" id="detailNarrative"></div>
+        </section>
+
+        <section class="detail-section-card fade-in-up">
+          <div class="detail-section-title">结构亮点</div>
+          <div class="detail-paragraph" id="detailStructure"></div>
+        </section>
+
+        <section class="detail-section-card fade-in-up">
+          <div class="detail-section-title">地域特征</div>
+          <div class="detail-paragraph" id="detailRegion"></div>
+        </section>
+
+        <section class="detail-section-card fade-in-up">
+          <div class="detail-section-title">文化意义</div>
+          <div class="detail-paragraph" id="detailCulture"></div>
+        </section>
+      </div>
+
+      <div class="detail-side">
+        <section class="detail-map-card fade-in-up">
+          <div class="panel-title">位置示意</div>
+          <div id="detailMap" class="detail-map"></div>
+          <div class="detail-map-note">
+            地图用于展示该桥梁在中国空间格局中的位置，可与主页面中的时空演化和桥型分布模块相互参照。
+          </div>
+        </section>
+
+        <section class="detail-side-card fade-in-up">
+          <div class="detail-section-title">可视化标签</div>
+          <div class="detail-side-tags" id="detailSideTags"></div>
+        </section>
+
+        <section class="detail-side-card fade-in-up">
+          <div class="detail-section-title">阅读提示</div>
+          <div class="detail-reading-note">
+            可将该桥与主页面中的同类型桥梁、同朝代桥梁或同区域桥梁进行对照观察，从中理解中国古代桥梁在材料、结构与地域环境之间的关联。
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="libs/leaflet/leaflet.js"></script>
+  <script src="js/bridges_data.js"></script>
+  <script src="js/detail.js"></script>
+</body>
+</html>
