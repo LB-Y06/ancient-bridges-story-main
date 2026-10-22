@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>千年桥韵：中国古代桥梁叙事可视化</title>
+  <link rel="stylesheet" href="libs/leaflet/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <section class="hero section" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-mist hero-mist-left"></div>
+        <div class="hero-mist hero-mist-right"></div>
+        <div class="hero-ornament hero-ornament-left"></div>
+        <div class="hero-ornament hero-ornament-right"></div>
+
+        <div class="hero-content">
+            <div class="hero-kicker hero-animate hero-animate-1">中国古代建筑成就 · 古桥专题</div>
+            <h1 class="hero-animate hero-animate-2">千年虹影·万里津梁</h1>
+            <h2 class="hero-animate hero-animate-3">中国古代桥梁文化可视化分析</h2>
+            <p class="hero-desc hero-animate hero-animate-4">
+            桥，不只是跨越江河沟壑的交通设施。它连接地域与聚落，也连接技术、审美与历史记忆。
+            从早期遗址到成熟石拱桥、木构廊桥，中国古桥在不同地理环境中发展出多样的形态与智慧。
+            </p>
+            <div class="hero-actions hero-animate hero-animate-5">
+            <button class="primary-btn" id="startStoryBtn">开始探索古桥</button>
+            </div>
+        </div>
+
+        <div class="hero-scroll-tip hero-animate hero-animate-6">向下滚动，进入叙事</div>
+    </section>
+
+    <section class="section intro section-light" id="overview">
+      <div class="section-head">
+        <div class="section-index">01</div>
+        <div>
+          <h3>古桥总览</h3>
+          <p>先从整体看见中国古桥：数量、类型、材料与空间分布。</p>
+        </div>
+      </div>
+
+      <div class="overview-stats" id="overviewStats">
+        <div class="stat-card">
+          <div class="stat-label">桥梁总数</div>
+          <div class="stat-value" id="totalCount">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">桥梁类型数</div>
+          <div class="stat-value" id="typeCount">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">主要建材种类</div>
+          <div class="stat-value" id="materialCount">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">涉及朝代条目</div>
+          <div class="stat-value" id="dynastyCount">0</div>
+        </div>
+      </div>
+
+      <!-- 这里是核心：地图 + 详情卡片 并排，单独占一行，不挤其他内容 -->
+      <div class="overview-layout">
+        <div class="overview-map-panel card">
+          <div class="panel-title">中国古桥空间总览</div>
+          <div id="overviewMap" class="map-box"></div>
+          <div class="panel-note">
+            地图展示全部桥梁点位。分布呈现明显的地域集聚特征，东部水网区、江南地区、东南沿海及西南民族地区更为集中。
+          </div>
+        </div>
+
+        <!-- 详情卡片：和地图并排，默认隐藏，点击地图后才显示 -->
+        <div class="overview-detail-panel card" id="overviewBridgeDetail" style="display: none;">
+          <div class="panel-title">桥梁详情</div>
+          <div class="bridge-detail-content">
+            <div class="bridge-detail-image">
+              <img id="overviewBridgeImg" src="" alt="桥梁图片" />
+            </div>
+            <div class="bridge-detail-info">
+              <h4 id="overviewBridgeName">桥梁名称</h4>
+              <div class="bridge-detail-meta">
+                <span class="meta-tag" id="overviewBridgeDynasty">朝代：-</span>
+                <span class="meta-tag" id="overviewBridgeType">类型：-</span>
+                <span class="meta-tag" id="overviewBridgeMaterial">建材：-</span>
+              </div>
+              <p id="overviewBridgeLocation">位置：-</p>
+              <p id="overviewBridgeDesc"></p>
+              <button class="ghost-btn small-btn" id="goToDetailBtn">查看完整详情</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 原来的类型/建材统计，移到地图下方，单独占一行，再也不会被挤了 -->
+      <div class="overview-chart-row">
+        <div class="chart-card card">
+          <div class="panel-title">桥梁类型统计</div>
+          <div id="typeChart" class="chart-box"></div>
+        </div>
+        <div class="chart-card card">
+          <div class="panel-title">桥梁建材统计</div>
+          <div id="materialChart" class="chart-box"></div>
+        </div>
+      </div>
+
+      <div class="wide-chart card">
+        <div class="panel-title">朝代分布统计</div>
+        <div id="dynastyChart" class="wide-chart-box"></div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="timelineSection">
+      <div class="section-head section-head-light">
+        <div class="section-index">02</div>
+        <div>
+          <h3>历史演化</h3>
+          <p>让时间推动地图，观察古桥如何在不同时代与地域中逐步展开。</p>
+        </div>
+      </div>
+
+      <div class="timeline-layout">
+        <div class="timeline-left card-dark">
+          <div class="timeline-map-wrap" id="timelineMapWrap">
+            <div id="timelineMap" class="timeline-map"></div>
+            <svg id="timelineLinkLayer" class="timeline-link-layer"></svg>
+          </div>
+
+          <div class="timeline-controls">
+            <button class="primary-btn small-btn" id="playPauseBtn">播放</button>
+            <input type="range" id="timelineSlider" min="0" max="0" value="0" />
+            <div class="timeline-current" id="timelineCurrentLabel">—</div>
+          </div>
+
+          <div class="timeline-caption" id="timelineCaption">
+            拖动时间轴，或点击播放，观察不同时代桥梁的空间分布与类型变化。
+          </div>
+        </div>
+
+        <div class="timeline-right">
+          <div class="card-dark info-card">
+            <div class="info-card-head">
+              <div class="panel-title panel-title-light">当前桥梁信息</div>
+              <div class="dynasty-badge" id="currentDynastyBadge">—</div>
+            </div>
+            <div id="bridgeInfoCard" class="bridge-info-card">
+              <div class="empty-info">
+                动画开始后，右侧会显示当前高亮桥梁的基础信息。
+              </div>
+            </div>
+          </div>
+
+          <div class="card-dark type-distribution-card">
+            <div class="panel-title panel-title-light">当前阶段类型分布</div>
+            <div id="timelineTypeChart" class="timeline-type-chart"></div>
+          </div>
+
+          <!-- 新增：桑基图容器 -->
+          <div class="card-dark sankey-card">
+            <div class="panel-title panel-title-light">当前阶段桥梁分布</div>
+            <div id="timelineSankeyChart" class="timeline-sankey-chart"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="typeSection">
+      <div class="section-head">
+        <div class="section-index">03</div>
+        <div>
+          <h3>桥型格局</h3>
+          <p>不同桥梁类型并非平均分布，而是与地域环境、材料条件和交通需求密切相关。</p>
+        </div>
+      </div>
+
+      <div class="type-filter-bar">
+        <button class="filter-btn active" data-type="全部">全部</button>
+        <button class="filter-btn" data-type="拱桥">拱桥</button>
+        <button class="filter-btn" data-type="梁桥">梁桥</button>
+        <button class="filter-btn" data-type="廊桥">风雨桥</button>
+      </div>
+
+      <div class="type-layout">
+        <div class="card type-map-card">
+          <div class="panel-title">桥型空间分布</div>
+          <div id="typeMap" class="map-box"></div>
+        </div>
+        <div class="card type-text-card">
+          <div class="panel-title">桥型解读</div>
+          <div id="typeNarrative" class="type-narrative">
+            请选择桥梁类型，查看其在中国空间上的分布特征与代表性意义。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="featuredSection">
+      <div class="section-head">
+        <div class="section-index">04</div>
+        <div>
+          <h3>典型古桥</h3>
+          <p>从总体分布回到个体对象，进入桥梁的具体历史与结构信息。</p>
+        </div>
+      </div>
+
+      <div class="featured-grid" id="featuredGrid"></div>
+    </section>
+
+    <section class="section section-dark ending-section" id="ending">
+      <div class="section-head section-head-light">
+        <div class="section-index">05</div>
+        <div>
+          <h3>工程智慧与文化价值</h3>
+          <p>古桥的价值，不止于跨越水陆，更在于它所沉淀的技术经验与人文精神。</p>
+        </div>
+      </div>
+
+      <div class="ending-grid">
+        <div class="card-dark ending-card">
+          <h4>因地制宜的材料选择</h4>
+          <p>
+            石桥、木桥与廊桥等不同类型，反映了古代工匠对地形、水文、资源条件的综合判断。
+            从石材充足的区域到木构传统发达的山地，桥梁技术始终与地方环境紧密结合。
+          </p>
+        </div>
+        <div class="card-dark ending-card">
+          <h4>结构形式的长期演进</h4>
+          <p>
+            从遗址性桥梁到成熟的石拱桥、梁桥与廊桥，古桥并不是孤立的建筑对象，而是不断适应交通、
+            运输、防洪与公共活动需求而发展出的工程成果。
+          </p>
+        </div>
+        <div class="card-dark ending-card">
+          <h4>交通设施之外的文化空间</h4>
+          <p>
+            许多桥梁兼具集会、休憩、景观、礼仪与地方记忆功能。桥既是“路”的节点，也是地方文化与社会生活的重要舞台。
+          </p>
+        </div>
+      </div>
+
+      <div class="ending-footer">
+        <div>作品主题：1911年以前中国古代桥梁可视化叙事设计</div>
+        <button class="ghost-btn light-border" id="backToTopBtn">回到开篇</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="libs/leaflet/leaflet.js"></script>
+  <script src="libs/echarts/echarts.min.js"></script>
+  <script src="js/bridges_data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
