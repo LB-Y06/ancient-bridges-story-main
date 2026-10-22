@@ -2,7 +2,7 @@
 
 **把 102 座中国古桥放进一张可探索的时空地图。**
 
-[![Deploy story](https://github.com/LB-Y06/ancient-bridges-story-main/actions/workflows/deploy.yml/badge.svg)](https://github.com/LB-Y06/ancient-bridges-story-main/actions/workflows/deploy.yml)
+[![Publish story](https://github.com/LB-Y06/ancient-bridges-story-main/actions/workflows/deploy.yml/badge.svg)](https://github.com/LB-Y06/ancient-bridges-story-main/actions/workflows/deploy.yml)
 ![Vanilla JavaScript](https://img.shields.io/badge/JavaScript-vanilla-f7df1e?logo=javascript&logoColor=111)
 ![ECharts](https://img.shields.io/badge/Visualization-ECharts-b33b42)
 ![Leaflet](https://img.shields.io/badge/Maps-Leaflet-199900?logo=leaflet&logoColor=white)
@@ -87,7 +87,7 @@ python -m http.server 8000
 
 ## 部署
 
-仓库包含 GitHub Actions 工作流。推送到 `master` 后，工作流会把静态站点发布到 GitHub Pages。首次使用时，在仓库的 **Settings → Pages** 中将 Source 设为 **GitHub Actions** 即可。
+仓库包含 GitHub Actions 工作流。推送到 `master` 后，工作流会把静态站点发布到 `gh-pages` 分支。首次使用时，在仓库的 **Settings → Pages** 中将 Source 设为 **Deploy from a branch**，分支选择 `gh-pages` 和 `/ (root)`；后续推送会自动更新站点。
 
 ## 设计取舍
 
